@@ -1,9 +1,12 @@
 <?php
 return
     [
-        'about' => 'About Us',
-        'email' => 'Email',
-        'contact' => 'Contact',
+        'about' => 'من نحن',
+        'email' => 'البريد',
+        'contact' => 'التواصل',
+        'team' => 'الفريق',
         'address' => 'العنوان',
-        'home' => 'الرئيسية'
+        'home' => 'الرئيسية',
+        'administration' => 'الادارة',
+        'team_desc' => 'تواصلو مع فريقنا'
     ];

@@ -48,10 +48,11 @@
 <script src="{{ asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
 <!-- Argon JS -->
+@stack('js')
 <script src="{{ asset('js/argon.min9f1e.js?v=1.1.0') }}"></script>
 <!-- Demo JS - remove this in your project -->
 {{--<script src="{{ asset('js/demo.min.js') }}"></script>--}}
-@stack('js')
+
 
 </body>
 </html>

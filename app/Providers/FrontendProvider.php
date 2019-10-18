@@ -32,11 +32,12 @@ class FrontendProvider extends ServiceProvider
 
     private function getSettings(){
         $settingsCollection = Setting::query()->where('locale_id',session()->get('current_locale'))
-            ->get();
-        $settings =[];
-        foreach ( $settingsCollection as $setting){
-            $settings[$setting->key] = $setting->value;
-        }
-        return $settings;
+            ->get()->pluck('value', 'key')->toArray();
+//        $settings =[];
+//        foreach ( $settingsCollection as $setting){
+//            $settings[$setting->key] = $setting->value;
+//        }
+        return $settingsCollection;
+//        return $settings;
      }
 }

@@ -46,8 +46,9 @@ Header
                 {{--                        <li><a href="#">Drop Down 5</a></li>--}}
                 {{--                    </ul>--}}
                 {{--                </li>--}}
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="/admin">Administration</a></li>
+                <li><a href="#contact">{{__('front.contact')}}</a></li>
+                <li><a href="/admin">{{__('front.administration')}}</a></li>
+                <li><select><option>ls</option></select></li>
             </ul>
         </nav><!-- .main-nav -->
 

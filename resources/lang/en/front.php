@@ -5,5 +5,8 @@ return
         'email' => 'Email',
         'contact' => 'Contact',
         'address' => 'Address',
-        'home'=>'Home'
+        'home' => 'Home',
+        'team' => 'Team',
+        'administration' => 'ADMINISTRATION',
+        'team_desc' => 'Get in touch with our team'
     ];

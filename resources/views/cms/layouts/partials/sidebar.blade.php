@@ -191,8 +191,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../calendar.html">
-                            <i class="ni ni-calendar-grid-58 text-red"></i>
+                        <a class="nav-link" href="{{ route('center.index') }}">
+                            <i class="ni ni-building text-blue"></i>
                             <span class="nav-link-text">Centers</span>
                         </a>
                     </li>

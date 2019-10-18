@@ -1,15 +1,16 @@
 <section id="team" class="section-bg">
     <div class="container">
         <div class="section-header">
-            <h3>Team</h3>
-            <p>Get in touch with our team</p>
+            <h3>{{ __('front.team') }}</h3>
+            <p>{{ __('front.team_desc') }}</p>
         </div>
 
         <div class="row">
             {{--            @for($i=0;$i<16;$i++)--}}
             @php($t=0.1)
             @foreach($team_members as $team_member)
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={{ $t++ }}"s">
+                @php($t += 0.1)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={{ $t }}"s">
                     <div class="member">
                         <img src="{{ asset($team_member->image) }}" class="img-fluid" alt="">
                         <div class="member-info">

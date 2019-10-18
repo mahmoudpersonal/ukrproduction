@@ -2,5 +2,8 @@
 
 
 use Illuminate\Support\Facades\Route;
+use function foo\func;
 
-Route::resource('study', 'StudyController');
+Route::prefix('admin')->group(function() {
+Route::resource('center', 'CenterController');
+});

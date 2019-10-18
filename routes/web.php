@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/a', function () {
-    return view('cms.layouts.app');
+    return view('cms.center.index');
 });
 Route::get('/login', function () {
     return view('auth.login');
