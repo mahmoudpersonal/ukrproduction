@@ -47,6 +47,7 @@
 <script src="{{ asset('vendor/js-cookie/js.cookie.js') }}"></script>
 <script src="{{ asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- Argon JS -->
 @stack('js')
 <script src="{{ asset('js/argon.min9f1e.js?v=1.1.0') }}"></script>

@@ -3,14 +3,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
-    <style>
-        /*
-MAHMOUD JOUMAA
-*/
-        .dataTables_length {
-            text-align: center !important;
-        }
-    </style>
 @endpush
 @section('content')
     @csrf
@@ -21,30 +13,28 @@ MAHMOUD JOUMAA
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-0">Centers</h3>
+                        <h3 class="mb-0">Patients</h3>
                     </div>
                     <div class="table-responsive py-4">
                         <table class="table table-flush" id="datatable-buttons1">
                             <thead class="thead-light">
                             <tr>
+                                <th>File Number</th>
                                 <th>Name</th>
-                                <th>Country</th>
-                                <th>City</th>
                                 <th>actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($centers as $center)
+                            @foreach($patients as $patient)
                                 <tr>
-                                <td>{{ $center->name }}</td>
-                                <td>{{ $center->city->country->name }}</td>
-                                <td>{{ $center->city->name }}</td>
+                                <td>{{ $patient->reference }}</td>
+                                <td>{{ $patient->full_name }}</td>
                                 <td class="table-actions" style="width: 10%;">
-                                    <a href="{{ route('center.edit', $center->id) }}" class="table-action" data-toggle="tooltip"
+                                    <a href="{{ route('patient.edit', $patient->id) }}" class="table-action" data-toggle="tooltip"
                                        data-original-title="Edit">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
-                                    <a href="" data-route="{{ route('center.destroy', $center->id) }}" class="table-action table-action-delete" data-toggle="tooltip"
+                                    <a href="" data-route="{{ route('patient.destroy', $patient->id) }}" class="table-action table-action-delete" data-toggle="tooltip"
                                        data-original-title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
@@ -99,7 +89,6 @@ MAHMOUD JOUMAA
                     dataType: 'json',
                     data: {_method: 'DELETE', _token: $('input[name="_token"]').val()},
                     success: function () {
-                        alert('akjs');
                         row.remove();
                     }
                 });

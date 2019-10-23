@@ -48,7 +48,7 @@ Header
                 {{--                </li>--}}
                 <li><a href="#contact">{{__('front.contact')}}</a></li>
                 <li><a href="/admin">{{__('front.administration')}}</a></li>
-                <li><select><option>ls</option></select></li>
+                <li style="padding: 10px"><select onchange=""><option value="en">en</option><option value="ar">ar</option><option value="es">es</option></select></li>
             </ul>
         </nav><!-- .main-nav -->
 

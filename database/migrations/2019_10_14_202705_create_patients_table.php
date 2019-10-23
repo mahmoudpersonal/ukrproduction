@@ -16,12 +16,16 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
-            $table->string('sur_name');
-            $table->string('country');
-            $table->string('state');
-            $table->string('city');
+            $table->string('last_name');
+            $table->string('reference');
+            $table->unsignedInteger('city_id');
             $table->Date('dob');
-            $table->string('number');
+            $table->string('attendance_number');
+            $table->text('previous_medical_details')->nullable();
+            $table->text('previous_surgical_details')->nullable();
+            $table->text('medication')->nullable();
+            $table->text('allergy')->nullable();
+            $table->text('additional_info')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

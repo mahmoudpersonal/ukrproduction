@@ -10,11 +10,11 @@
             <!-- Form groups used in grid -->
             <form method="POST"
                   action="@if(isset($center)){{ route('center.update', $center->id) }}@else{{ route('center.store') }}@endif"
-                  {{--class="needs-validation" novalidate--}}>
+                {{--class="needs-validation" novalidate--}}>
                 @csrf
                 @isset($center) @method('PUT') @endisset
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label" for="name">Name</label>
                             <input type="text" class="form-control" id="name"
@@ -22,17 +22,32 @@
                                    placeholder="Name" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" for="city">City</label>
-                            <select class="form-control" id="city" name="city" required>
-                                <option value="">-- Choose City --</option>
-                                @foreach($cities as $city)
-                                    <option value="{{ $city->id }}"
-                                            @if(isset($center) && $center->city_id == $city->id) selected @endif>
-                                        {{ $city->name }}
+                            <label class="form-control-label" for="country_id">Country</label>
+                            <select class="form-control" id="country_id" name="country_id" required>
+                                <option value="">-- Choose Country --</option>
+                                @foreach($countries as $country)
+                                    <option value="{{ $country->id }}"
+                                            @if(isset($center) && $center->city->country->id == $country->id) selected @endif>
+                                        {{ $country->name }}
                                     </option>
                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="city_id">City</label>
+                            <select class="form-control" id="city_id" name="city_id" required>
+                                <option value="">-- Choose City --</option>
+                                @isset($center)
+                                    @foreach($cities as $city)
+                                        <option value="{{ $city->id }}"
+                                                @if($city->id==$center->city_id) selected @endif>{{ $city->name }}
+                                        </option>
+                                    @endforeach
+                                @endisset
                             </select>
                         </div>
                     </div>
@@ -43,3 +58,26 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $('#country_id').on('change', function () {
+            if ($(this).val() !== '')
+                $.ajax({
+                    url: '{{ route('cities.byCountry') }}',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        country_id: $(this).val(),
+                        _token: $('input[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#city_id').html('<option value="">-- Choose City --</option>');
+                        $.each(response, function (i, v) {
+                            $('#city_id').append('<option value="' + i + '">' + v + '</option>');
+                        });
+                    }
+                });
+            else $('#city_id').html('<option value="">-- Choose City --</option>');
+        });
+    </script>
+@endpush
