@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2acd54ba-5c3e-42b0-b268-cf15d5cefebb" name="Default Changelist" comment="" />
+    <list default="true" id="2acd54ba-5c3e-42b0-b268-cf15d5cefebb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/vendor/sweet-alerts/sweetalert.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sweet-alerts/sweetalert.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cms/layouts/datatable/panel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/argon.min9f1e.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/argon.min9f1e.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/argon.min9f1e.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/argon.min9f1e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/center/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/center/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/patient/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/patient/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/cms.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cms.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,22 +123,22 @@
   <component name="ProjectId" id="1SCyvVPmdTYqxGrC7gr91cxDGrn" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/cms/patient" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
-      <recent name="C:\wamp641\www\ukr\public\img\team" />
-      <recent name="C:\wamp641\www\ukr\public" />
-      <recent name="C:\wamp641\www\ukr\resources\views" />
-      <recent name="C:\wamp641\www\ukr\resources\views\cms\layouts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp641\www\ukrproduction\app\Http\Controllers\CMS" />
       <recent name="C:\wamp641\www\ukr\resources\lang\frontend\en" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers\CMS" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
+      <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
+      <recent name="C:\wamp641\www\ukr\public\img\team" />
+      <recent name="C:\wamp641\www\ukr\public" />
+      <recent name="C:\wamp641\www\ukr\resources\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -159,6 +173,7 @@
       <workItem from="1571162740299" duration="55273000" />
       <workItem from="1571486153977" duration="17194000" />
       <workItem from="1571650031660" duration="21016000" />
+      <workItem from="1571906580988" duration="9316000" />
     </task>
     <servers />
   </component>

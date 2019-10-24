@@ -23,6 +23,13 @@ var Layout = function () {
     function a() {
         $(".sidenav-toggler").removeClass("active"), $(".sidenav-toggler").data("action", "sidenav-pin"), $("body").removeClass("g-sidenav-pinned").addClass("g-sidenav-hidden"), $("body").find(".backdrop").remove(), Cookies.set("sidenav-state", "unpinned")
     }
+    $(window).on('load', function () {
+        if ($('#preloader').length) {
+            $('#preloader').delay(100).fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }
+    });
 
     var t = Cookies.get("sidenav-state") ? Cookies.get("sidenav-state") : "pinned";
     $(window).width() > 1200 && ("pinned" == t && e(), "unpinned" == Cookies.get("sidenav-state") && a()), $("body").on("click", "[data-action]", function (t) {

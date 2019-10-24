@@ -15,7 +15,23 @@ class StudyController extends Controller
      */
     public function index()
     {
-        //
+        $fields = [
+            'table_header' => ['patient', 'examination'],
+            'model' => Study::all(),
+            'attributes' =>
+                [
+                    [
+                        'type' => 'object',
+                        'reference' => ['patient', 'full_name']
+                    ],
+                    [
+                        'type' => 'field',
+                        'field' => 'examination'
+                    ],
+                ]
+        ];
+        $page_name = 'study';
+        return view('cms.layouts.datatable.panel', compact('fields', 'page_name'));
     }
 
     /**
@@ -31,7 +47,7 @@ class StudyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +58,7 @@ class StudyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Study  $study
+     * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
     public function show(Study $study)
@@ -53,7 +69,7 @@ class StudyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Study  $study
+     * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
     public function edit(Study $study)
@@ -64,8 +80,8 @@ class StudyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Study  $study
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Study $study)
@@ -76,7 +92,7 @@ class StudyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Study  $study
+     * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
     public function destroy(Study $study)

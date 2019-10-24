@@ -165,26 +165,26 @@
 {{--                        </div>--}}
 {{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="../widgets.html">
+                        <a class="nav-link" href="{{ route('study.index') }}">
                             <i class="ni ni-books text-green"></i>
                             <span class="nav-link-text">Studies</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../charts.html">
+                        <a class="nav-link" href="{{ route('report.index') }}">
                             <i class="ni ni-paper-diploma text-info"></i>
                             <span class="nav-link-text">Reports</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../calendar.html">
+                        <a class="nav-link" href="{{ route('radiologist.index') }}">
                             <i class="ni ni-calendar-grid-58 text-red"></i>
                             <span class="nav-link-text">Radiologist</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../calendar.html">
+                        <a class="nav-link" href="{{ route('patient.index') }}">
                             <i class="ni ni-calendar-grid-58 text-red"></i>
                             <span class="nav-link-text">Patients</span>
                         </a>

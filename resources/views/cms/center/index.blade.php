@@ -92,15 +92,26 @@ MAHMOUD JOUMAA
 
             $('.table-action-delete').on('click', function (e) {
                 e.preventDefault();
-                let row = $(this).parent().parent();
-                $.ajax({
-                    url: $(this).data('route'),
-                    type: 'post',
-                    dataType: 'json',
-                    data: {_method: 'DELETE', _token: $('input[name="_token"]').val()},
-                    success: function () {
-                        alert('akjs');
-                        row.remove();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover again !",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (!willDelete) {
+                        return false;
+                    } else {
+                        let row = $(this).parent().parent();
+                        $.ajax({
+                            url: $(this).data('route'),
+                            type: 'post',
+                            dataType: 'json',
+                            data: {_method: 'DELETE', _token: $('input[name="_token"]').val()},
+                            success: function () {
+                                row.remove();
+                            }
+                        });
                     }
                 });
             });

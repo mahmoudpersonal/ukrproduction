@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/sweet-alerts/sweetalert.css') }}">
 @endpush
 @section('content')
     @csrf
@@ -19,28 +20,44 @@
                         <table class="table table-flush" id="datatable-buttons1">
                             <thead class="thead-light">
                             <tr>
-                                <th>File Number</th>
-                                <th>Name</th>
-                                <th>actions</th>
+                                @foreach($fields['table_header'] as $header)
+                                    <th>{{ strtoupper($header) }}</th>
+                                @endforeach
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($patients as $patient)
+                            @foreach($fields['model'] as $model)
                                 <tr>
-                                <td>{{ $patient->reference }}</td>
-                                <td>{{ $patient->full_name }}</td>
-                                <td class="table-actions" style="width: 10%;">
-                                    <a href="{{ route('patient.edit', $patient->id) }}" class="table-action" data-toggle="tooltip"
-                                       data-original-title="Edit">
-                                        <i class="fas fa-user-edit"></i>
-                                    </a>
-                                    <a href="" data-route="{{ route('patient.destroy', $patient->id) }}" class="table-action table-action-delete" data-toggle="tooltip"
-                                       data-original-title="Delete">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                                @endforeach
+                                    @foreach($fields['attributes'] as $attribute)
+                                        @if(!isset($attribute['reference']))
+                                            <td>{{ $model->{$attribute['field']} }}</td>
+                                        @else
+                                            @foreach($attribute['reference'] as $reference)
+                                                @php
+                                                    if(!isset($temp))
+                                                        $temp = $model->$reference;
+                                                    else
+                                                        $temp = $temp->$reference;
+                                                @endphp
+                                            @endforeach
+                                            <td>{{ $temp }}</td>
+                                        @endif
+                                    @endforeach
+                                    <td class="table-actions" style="width: 10%;">
+                                        <a href="{{ route($page_name.'.edit',$model->id) }}" class="table-action"
+                                           data-toggle="tooltip"
+                                           data-original-title="Edit">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <a href="" data-route="{{ route($page_name.'.destroy', $model->id) }}"
+                                           class="table-action table-action-delete" data-toggle="tooltip"
+                                           data-original-title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -58,6 +75,8 @@
     <script src="{{ asset('vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('vendor/sweet-alerts/sweetalert.min.js') }}"></script>
+
 
     <script>
         $(function () {
@@ -67,7 +86,7 @@
                     // lengthChange: !1,
                     // select: {style: "multi"},
                     dom: "lBfrtip",
-                    lengthMenu: [ 10, 25, 50, 75, 100 ],
+                    lengthMenu: [10, 25, 50, 75, 100],
                     buttons: ["copy", "print"],
                     language: {
                         paginate: {
