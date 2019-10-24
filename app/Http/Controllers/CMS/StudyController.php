@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
+use App\Models\Center;
+use App\Models\Patient;
 use App\Models\Study;
+use App\User;
 use Illuminate\Http\Request;
 
 class StudyController extends Controller
@@ -41,7 +45,15 @@ class StudyController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'patients' => Patient::all(),
+            'areas' => Area::query()->where('type', 0)->get(),
+            'subareas' => Area::query()->where('type', 1)->get(),
+            'centers' => Center::all(),
+            'doctors' => User::all(),
+            'priorities' => ['emergency', 'urgent', 'normal', 'deferred']
+        ];
+        return view('cms.study.edit', $data);
     }
 
     /**
@@ -52,7 +64,9 @@ class StudyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->except('_token', '_method');
+        Study::query()->create($params);
+        return redirect()->route('study.index');
     }
 
     /**
@@ -74,7 +88,16 @@ class StudyController extends Controller
      */
     public function edit(Study $study)
     {
-        //
+        $data = [
+            'patients' => Patient::all(),
+            'areas' => Area::query()->where('type', 0)->get(),
+            'subareas' => Area::query()->where('type', 1)->get(),
+            'centers' => Center::all(),
+            'doctors' => User::all(),
+            'priorities' => ['emergency', 'urgent', 'normal', 'deferred'],
+            'study' => $study
+        ];
+        return view('cms.study.edit', $data);
     }
 
     /**
@@ -86,7 +109,8 @@ class StudyController extends Controller
      */
     public function update(Request $request, Study $study)
     {
-        //
+        $study->update($request->except('_token', '_method'));
+        return redirect()->route('study.index');
     }
 
     /**

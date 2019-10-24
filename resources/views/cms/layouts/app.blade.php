@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/%40fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('css/argon.min9f1e.css?v=1.1.0') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('vendor/sweet-alerts/sweetalert.css') }}">
+
     @stack('css')
 
 </head>
@@ -49,6 +51,7 @@
 <script src="{{ asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('vendor/sweet-alerts/sweetalert.min.js') }}"></script>
 <!-- Argon JS -->
 @stack('js')
 <script src="{{ asset('js/argon.min9f1e.js?v=1.1.0') }}"></script>

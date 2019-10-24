@@ -127,18 +127,18 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp641\www\ukrproduction\app\Http\Controllers\CMS" />
-      <recent name="C:\wamp641\www\ukr\resources\lang\frontend\en" />
-      <recent name="C:\wamp641\www\ukr\app\Http\Controllers" />
-      <recent name="C:\wamp641\www\ukr\app\Http\Controllers\CMS" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
       <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
       <recent name="C:\wamp641\www\ukr\public\img\team" />
       <recent name="C:\wamp641\www\ukr\public" />
       <recent name="C:\wamp641\www\ukr\resources\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp641\www\ukrproduction\app\Http\Controllers\CMS" />
+      <recent name="C:\wamp641\www\ukr\resources\lang\frontend\en" />
+      <recent name="C:\wamp641\www\ukr\app\Http\Controllers" />
+      <recent name="C:\wamp641\www\ukr\app\Http\Controllers\CMS" />
     </key>
   </component>
   <component name="RunDashboard">

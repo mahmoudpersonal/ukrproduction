@@ -3,7 +3,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/sweet-alerts/sweetalert.css') }}">
 @endpush
 @section('content')
     @csrf
@@ -42,6 +41,7 @@
                                                 @endphp
                                             @endforeach
                                             <td>{{ $temp }}</td>
+                                            @php unset($temp) @endphp
                                         @endif
                                     @endforeach
                                     <td class="table-actions" style="width: 10%;">
@@ -75,9 +75,6 @@
     <script src="{{ asset('vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
-    <script src="{{ asset('vendor/sweet-alerts/sweetalert.min.js') }}"></script>
-
-
     <script>
         $(function () {
             DatatableButtons = function () {

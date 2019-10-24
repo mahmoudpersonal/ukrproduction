@@ -20,7 +20,7 @@ class CreateStudiesTable extends Migration
             $table->unsignedInteger('subarea_id');
             $table->unsignedInteger('locale_id');
             $table->unsignedInteger('center_id');
-            $table->unsignedInteger('team_id');
+            $table->unsignedInteger('user_id');
             $table->string('visit_type');
             $table->date('examination_date');
             $table->string('examination');
