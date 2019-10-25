@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
-use App\Models\City;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
-class CityController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,19 +16,16 @@ class CityController extends Controller
     public function index()
     {
         $fields = [
-            'table_header' => ['country', 'name'],
-            'model' => City::all(),
+            'table_header' => ['name'],
+            'model' => Country::all(),
             'attributes' =>
                 [
-                    [
-                        'reference' => ['country', 'name']
-                    ],
                     [
                         'field' => 'name'
                     ],
                 ]
         ];
-        $page_name = 'city';
+        $page_name = 'country';
         return view('cms.layouts.datatable.panel', compact('fields', 'page_name'));
     }
 
@@ -40,10 +36,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        $data = [
-            'countries' => Country::all()
-        ];
-        return view('cms.city.edit', $data);
+        return view('cms.country.edit');
     }
 
     /**
@@ -54,8 +47,8 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        City::query()->create($request->except('_token', '_method'));
-        return redirect()->route('city.index');
+        Country::query()->create($request->except('_token', '_method'));
+        return redirect()->route('country.index');
     }
 
     /**
@@ -78,10 +71,9 @@ class CityController extends Controller
     public function edit($id)
     {
         $data = [
-            'countries' => Country::all(),
-            'city' => City::query()->find($id)
+            'country' => Country::query()->find($id)
         ];
-        return view('cms.city.edit', $data);
+        return view('cms.country.edit', $data);
     }
 
     /**
@@ -93,8 +85,8 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        City::query()->find($id)->update($request->except('_token', '_method'));
-        return redirect()->route('city.index');
+        Country::query()->find($id)->update($request->except('_token', '_method'));
+        return redirect()->route('country.index');
     }
 
     /**
@@ -105,12 +97,7 @@ class CityController extends Controller
      */
     public function destroy($id)
     {
-        City::destroy($id);
+        Country::destroy($id);
         return response()->json(['message' => 'success']);
-    }
-
-    public function getByCountry(Request $request)
-    {
-        return json_encode(Country::query()->find($request->country_id)->cities->pluck('name', 'id'));
     }
 }

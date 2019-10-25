@@ -1,4 +1,25 @@
 @extends('cms.layouts.app')
+@push('css')
+    <style>
+
+        /*#my-dropzone .message {*/
+        /*    font-family: "Segoe UI Light", "Arial", serif;*/
+        /*    font-weight: 600;*/
+        /*    color: #0087F7;*/
+        /*    font-size: 1.5em;*/
+        /*    letter-spacing: 0.05em;*/
+        /*}*/
+
+        /*.dropzone {*/
+        /*    border: 2px dashed #0087F7;*/
+        /*    background: white;*/
+        /*    border-radius: 5px;*/
+        /*    !*min-height: 300px;*!*/
+        /*    padding: 90px 0;*/
+        /*    vertical-align: baseline;*/
+        /*}*/
+    </style>
+@endpush
 @section('content')
     <div class="card mb-4">
         <!-- Card header -->
@@ -9,10 +30,48 @@
         <div class="card-body">
             <!-- Form groups used in grid -->
             <form method="POST"
-                  action="@if(isset($study)){{ route('study.update', $study->id) }}@else{{ route('study.store') }}@endif">
+                  action="@if(isset($study)){{ route('study.update', $study->id) }}@else{{ route('study.store') }}@endif"
+                  enctype="multipart/form-data" class="dropzone" id="my-dropzone">
                 @csrf
                 @isset($study) @method('PUT') @endisset
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="dropzone dropzone-multiple" data-toggle="dropzone" data-dropzone-multiple data-dropzone-url="http://">
+                            <div class="fallback">
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="custom-file-input" id="customFileUploadMultiple" multiple>
+                                    <label class="custom-file-label" for="customFileUploadMultiple">Choose file</label>
+                                </div>
+                            </div>
+                            <ul class="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush">
+                                <li class="list-group-item px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <div class="avatar">
+                                                <img class="avatar-img rounded" src="...html" alt="..." data-dz-thumbnail>
+                                            </div>
+                                        </div>
+                                        <div class="col ml--3">
+                                            <h4 class="mb-1" data-dz-name>...</h4>
+                                            <p class="small text-muted mb-0" data-dz-size>...</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fe fe-more-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="#" class="dropdown-item" data-dz-remove>
+                                                        Remove
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
@@ -117,7 +176,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label" for="examination">Examination</label>
-                            <input class="form-control" name="examination" id="examination" placeholder="Select Examination" type="text"
+                            <input class="form-control" name="examination" id="examination"
+                                   placeholder="Select Examination" type="text"
                                    value="@if(isset($study)){{ $study->examination }}@endif" autocomplete="off">
                         </div>
                     </div>
@@ -125,7 +185,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label" for="examination_date">Examination Date</label>
-                            <input class="form-control dob" name="examination_date" id="examination_date" placeholder="Select date" type="text"
+                            <input class="form-control dob" name="examination_date" id="examination_date"
+                                   placeholder="Select date" type="text"
                                    value="@if(isset($study)){{ $study->examination_date }}@endif" autocomplete="off">
                         </div>
                     </div>
@@ -162,9 +223,40 @@
     </div>
 @endsection
 @push('js')
+    <script src="{{ asset('vendor/dropzone/dist/min/dropzone.min.js') }}"></script>
     <script>
         $(function () {
             $(".dob").datepicker({format: 'yyyy-mm-dd'});
+
+            var total_photos_counter = 0;
+            Dropzone.options.myDropzone = {
+                uploadMultiple: true,
+                parallelUploads: 2,
+                maxFilesize: 16,
+                previewTemplate: document.querySelector('#preview').innerHTML,
+                addRemoveLinks: true,
+                dictRemoveFile: 'Remove file',
+                dictFileTooBig: 'Image is larger than 16MB',
+                timeout: 10000,
+
+                init: function () {
+                    this.on("removedfile", function (file) {
+                        $.post({
+                            url: '/images-delete',
+                            data: {id: file.name, _token: $('[name="_token"]').val()},
+                            dataType: 'json',
+                            success: function (data) {
+                                total_photos_counter--;
+                                $("#counter").text("# " + total_photos_counter);
+                            }
+                        });
+                    });
+                },
+                success: function (file, done) {
+                    total_photos_counter++;
+                    $("#counter").text("# " + total_photos_counter);
+                }
+            };
         });
     </script>
 @endpush

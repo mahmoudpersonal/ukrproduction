@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 //    return view('auth.login');
 //});
 Route::get('/', 'HomeController@index');
+Route::post('/upload-image', 'HomeController@uploadImage')->name('upload-image');
 Auth::routes();

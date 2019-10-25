@@ -30,7 +30,11 @@
                                 <tr>
                                     @foreach($fields['attributes'] as $attribute)
                                         @if(!isset($attribute['reference']))
-                                            <td>{{ $model->{$attribute['field']} }}</td>
+                                            @if(!isset($attribute['array_of_field_key']))
+                                                <td>{{ $model->{$attribute['field']} }}</td>
+                                            @else
+                                                <td>{{ $attribute['array_of_field_key'][$model->{$attribute['field']}] }}</td>
+                                            @endif
                                         @else
                                             @foreach($attribute['reference'] as $reference)
                                                 @php
@@ -40,7 +44,11 @@
                                                         $temp = $temp->$reference;
                                                 @endphp
                                             @endforeach
-                                            <td>{{ $temp }}</td>
+                                            @if(!isset($attribute['array_of_field_key']))
+                                                <td>{{ $temp }}</td>
+                                            @else
+                                                <td>{{ $attribute['array_of_field_key'][$temp] }}</td>
+                                            @endif
                                             @php unset($temp) @endphp
                                         @endif
                                     @endforeach

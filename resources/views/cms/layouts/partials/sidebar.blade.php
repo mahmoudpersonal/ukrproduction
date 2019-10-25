@@ -130,25 +130,6 @@
 {{--                        </div>--}}
 {{--                    </li>--}}
 {{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#navbar-tables" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-tables">--}}
-{{--                            <i class="ni ni-align-left-2 text-default"></i>--}}
-{{--                            <span class="nav-link-text">Tables</span>--}}
-{{--                        </a>--}}
-{{--                        <div class="collapse" id="navbar-tables">--}}
-{{--                            <ul class="nav nav-sm flex-column">--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="../tables/tables.html" class="nav-link">Tables</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="../tables/sortable.html" class="nav-link">Sortable</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="../tables/datatables.html" class="nav-link">Datatables</a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link" href="#navbar-maps" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">--}}
 {{--                            <i class="ni ni-map-big text-primary"></i>--}}
 {{--                            <span class="nav-link-text">Maps</span>--}}
@@ -185,7 +166,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('patient.index') }}">
-                            <i class="ni ni-calendar-grid-58 text-red"></i>
+                            <i class="ni ni-single-02 text-black-50"></i>
                             <span class="nav-link-text">Patients</span>
                         </a>
                     </li>
@@ -195,6 +176,25 @@
                             <i class="ni ni-building text-blue"></i>
                             <span class="nav-link-text">Centers</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#navbar-tables" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-tables">
+                            <i class="ni ni-settings-gear-65 text-default"></i>
+                            <span class="nav-link-text">Static Information</span>
+                        </a>
+                        <div class="collapse" id="navbar-tables">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('country.index') }}" class="nav-link">Countries</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('city.index') }}" class="nav-link">Cities</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('area.index') }}" class="nav-link">Areas</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
 {{--                <!-- Divider -->--}}

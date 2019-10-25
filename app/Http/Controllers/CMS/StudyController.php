@@ -64,6 +64,7 @@ class StudyController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $params = $request->except('_token', '_method');
         Study::query()->create($params);
         return redirect()->route('study.index');
@@ -121,6 +122,7 @@ class StudyController extends Controller
      */
     public function destroy(Study $study)
     {
-        //
+        Study::destroy($study->id);
+        return response()->json(['message' => 'success']);
     }
 }

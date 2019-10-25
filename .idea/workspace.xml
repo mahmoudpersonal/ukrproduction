@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2acd54ba-5c3e-42b0-b268-cf15d5cefebb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/vendor/sweet-alerts/sweetalert.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/sweet-alerts/sweetalert.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cms/layouts/datatable/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/ImageUpload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cms/city/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cms/country/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/SettingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/argon.min9f1e.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/argon.min9f1e.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/argon.min9f1e.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/argon.min9f1e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/center/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/center/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_14_203011_create_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_14_203011_create_areas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/datatable/panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/datatable/panel.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/patient/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/patient/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/study/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/study/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/cms.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,22 +126,23 @@
   <component name="ProjectId" id="1SCyvVPmdTYqxGrC7gr91cxDGrn" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projects/web-application" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
-      <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
-      <recent name="C:\wamp641\www\ukr\public\img\team" />
-      <recent name="C:\wamp641\www\ukr\public" />
-      <recent name="C:\wamp641\www\ukr\resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\Http\Controllers\CMS" />
       <recent name="C:\wamp641\www\ukrproduction\app\Http\Controllers\CMS" />
       <recent name="C:\wamp641\www\ukr\resources\lang\frontend\en" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers\CMS" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\utils" />
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
+      <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
+      <recent name="C:\wamp641\www\ukr\public\img\team" />
+      <recent name="C:\wamp641\www\ukr\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -174,6 +178,7 @@
       <workItem from="1571486153977" duration="17194000" />
       <workItem from="1571650031660" duration="21016000" />
       <workItem from="1571906580988" duration="9316000" />
+      <workItem from="1571984499716" duration="17193000" />
     </task>
     <servers />
   </component>

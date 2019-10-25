@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -80,6 +81,7 @@ class SettingController extends Controller
      */
     public function destroy(Setting $setting)
     {
-        //
+        Setting::destroy($setting->id);
+        return response()->json(['message' => 'success']);
     }
 }

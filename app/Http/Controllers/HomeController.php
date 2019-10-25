@@ -15,4 +15,8 @@ class HomeController extends Controller
 
         return view('frontend.index', compact('team_members'));
     }
+
+    public function uploadImage(Request $request ){
+
+    }
 }

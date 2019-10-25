@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\Http\Controllers\Controller;
 use App\Models\Area;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,22 @@ class AreaController extends Controller
      */
     public function index()
     {
-        //
+        $fields = [
+            'table_header' => ['name', 'type'],
+            'model' => Area::all(),
+            'attributes' =>
+                [
+                    [
+                        'field' => 'name'
+                    ],
+                    [
+                        'field' => 'type',
+                        'array_of_field_key' => ['area', 'subarea']
+                    ],
+                ]
+        ];
+        $page_name = 'city';
+        return view('cms.layouts.datatable.panel', compact('fields', 'page_name'));
     }
 
     /**
@@ -30,7 +46,7 @@ class AreaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +57,7 @@ class AreaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Area  $area
+     * @param \App\Models\Area $area
      * @return \Illuminate\Http\Response
      */
     public function show(Area $area)
@@ -52,7 +68,7 @@ class AreaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Area  $area
+     * @param \App\Models\Area $area
      * @return \Illuminate\Http\Response
      */
     public function edit(Area $area)
@@ -63,8 +79,8 @@ class AreaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Area  $area
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Area $area
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Area $area)
@@ -75,11 +91,12 @@ class AreaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Area  $area
+     * @param \App\Models\Area $area
      * @return \Illuminate\Http\Response
      */
     public function destroy(Area $area)
     {
-        //
+        Area::destroy($area->id);
+        return response()->json(['message' => 'success']);
     }
 }
