@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->boolean('viewable')->default(0);
+            $table->boolean('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

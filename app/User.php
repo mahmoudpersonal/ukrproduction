@@ -41,4 +41,14 @@ class User extends Authenticatable
     {
         return $query->where('position', 'not like', 'admin');
     }
+
+    public function scopeIsAdmin($query)
+    {
+        return $query->where('admin', 1);
+    }
+
+    public function scopeViewable($query)
+    {
+        return $query->where('viewable', 1);
+    }
 }

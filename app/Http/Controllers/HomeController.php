@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $team_members = User::query()->where('position', 'not like', 'admin')->get();
+        $team_members = User::query()->viewable()->get();
 
         return view('frontend.index', compact('team_members'));
     }

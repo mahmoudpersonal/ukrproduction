@@ -30,6 +30,7 @@ class UsersSeeder extends Seeder
             ['name' => 'Dr José Miguel Rosales Zábal', 'position' => 'Consultant Gastroenterologist', 'bio' => '', 'image' => 'img/team/dr_rosales.jpg', 'email' => '', 'linkedin' => '', 'twitter' => ''],
             ['name' => 'Dr Ibrahim Hamad', 'position' => 'Consultant pneumologist', 'bio' => '', 'image' => 'img/team/dr_hamad.jpg', 'email' => '', 'linkedin' => '', 'twitter' => ''],
             ['name' => 'Prof Majed J. Katati', 'position' => 'Prof of Neurosurgery', 'bio' => '', 'image' => 'img/team/prof_katati.jpg', 'email' => '', 'linkedin' => '', 'twitter' => ''],
+            ['name' => 'admin', 'position' => 'admin', 'bio' => '', 'image' => '', 'email' => 'admin@admin.com', 'linkedin' => '', 'twitter' => '', 'password' => bcrypt('a')],
         ]);
     }
 }

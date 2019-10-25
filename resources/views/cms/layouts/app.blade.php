@@ -39,7 +39,7 @@
         @yield('content')
 
 
-        @include('cms.layouts.partials.footer')
+{{--        @include('cms.layouts.partials.footer')--}}
     </div>
 </div>
 <!-- Argon Scripts -->

@@ -29,7 +29,7 @@ class AreaController extends Controller
                     ],
                 ]
         ];
-        $page_name = 'city';
+        $page_name = 'area';
         return view('cms.layouts.datatable.panel', compact('fields', 'page_name'));
     }
 
@@ -40,7 +40,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        return view('cms.area.edit');
     }
 
     /**
@@ -51,7 +51,10 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->except('_token', '_method');
+        $params['type'] = isset($params['type']) ? 1 : 0;
+        Area::query()->create($params);
+        return redirect()->route('area.index');
     }
 
     /**
@@ -73,7 +76,7 @@ class AreaController extends Controller
      */
     public function edit(Area $area)
     {
-        //
+        return view('cms.area.edit', compact('area'));
     }
 
     /**
@@ -85,7 +88,10 @@ class AreaController extends Controller
      */
     public function update(Request $request, Area $area)
     {
-        //
+        $params = $request->except('_token', '_method');
+        $params['type'] = isset($params['type']) ? 1 : 0;
+        $area->update($params);
+        return redirect()->route('area.index');
     }
 
     /**

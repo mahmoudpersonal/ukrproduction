@@ -12,8 +12,9 @@
             <div class="col">
                 <div class="card">
                     <!-- Card header -->
-                    <div class="card-header">
-                        <h3 class="mb-0">Patients</h3>
+                    <div class="card-header" >
+                        <h3 class="mb-0" style="float: left">Patients</h3>
+                        <div style="float: right" ><a href="{{ route('patient.create') }}"><i class="fa fa-plus"></i></a></div>
                     </div>
                     <div class="table-responsive py-4">
                         <table class="table table-flush" id="datatable-buttons1">

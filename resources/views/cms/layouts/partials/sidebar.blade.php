@@ -151,14 +151,14 @@
                             <span class="nav-link-text">Studies</span>
                         </a>
                     </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="{{ route('report.index') }}">--}}
+{{--                            <i class="ni ni-paper-diploma text-info"></i>--}}
+{{--                            <span class="nav-link-text">Reports</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('report.index') }}">
-                            <i class="ni ni-paper-diploma text-info"></i>
-                            <span class="nav-link-text">Reports</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('radiologist.index') }}">
+                        <a class="nav-link" href="{{ route('user.index') }}">
                             <i class="ni ni-calendar-grid-58 text-red"></i>
                             <span class="nav-link-text">Radiologist</span>
                         </a>
@@ -192,6 +192,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('area.index') }}" class="nav-link">Areas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('language.index') }}" class="nav-link">Language Management</a>
                                 </li>
                             </ul>
                         </div>

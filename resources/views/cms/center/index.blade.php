@@ -20,8 +20,9 @@ MAHMOUD JOUMAA
             <div class="col">
                 <div class="card">
                     <!-- Card header -->
-                    <div class="card-header">
-                        <h3 class="mb-0">Centers</h3>
+                    <div class="card-header" >
+                        <h3 class="mb-0" style="float: left">Centers</h3>
+                        <div style="float: right" ><a href="{{ route('center.create') }}"><i class="fa fa-plus"></i></a></div>
                     </div>
                     <div class="table-responsive py-4">
                         <table class="table table-flush" id="datatable-buttons1">
