@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" @if(session()->get('current_locale') == 'ar')dir="rtl"@endif>
 <head>
     <meta charset="utf-8">
     <title>Rapid Bootstrap Template</title>
@@ -700,7 +700,7 @@ Header
 <script src="{{ asset('js/main.js') }}"></script>
 <script>
     $(function () {
-        $('#lang').on('change', function () {
+        $(document).on('change', '#lang', function () {
             $(this).parent().submit();
         });
     });

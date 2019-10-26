@@ -3,7 +3,7 @@
     <div class="container">
 
         <header class="section-header">
-            <h3 style="padding-top: 15px">Contact</h3>
+            <h3 style="padding-top: 15px">{{ __('front.contact') }}</h3>
             <p><b>{{__('front.address')}} : </b>{{ $settings['address'] ?? '' }}</p>
             <p><b>{{__('front.email')}} : </b>{{ 'info@ukradiologist.online' }}</p>
         </header>

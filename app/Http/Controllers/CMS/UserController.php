@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $fields = [
             'table_header' => ['name', 'position'],
-            'model' => User::all(),
+            'model' => User::query()->where('id', '<>', auth()->id())->get(),
             'attributes' =>
                 [
                     [
