@@ -125,17 +125,18 @@
   </component>
   <component name="ProjectId" id="1SCyvVPmdTYqxGrC7gr91cxDGrn" />
   <component name="PropertiesComponent">
+    <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projects/web-application" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp641\www\ukrproduction\public\css" />
+      <recent name="C:\wamp641\www\ukrproduction\resources\lang\es" />
       <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\utils" />
       <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
       <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
-      <recent name="C:\wamp641\www\ukr\public\img\team" />
-      <recent name="C:\wamp641\www\ukr\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\Http\Controllers\CMS" />

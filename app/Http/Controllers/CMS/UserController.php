@@ -4,10 +4,13 @@ namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Utils\ImageUpload;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use ImageUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -51,8 +54,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['email' => 'nullable|unique', 'password' => 'confirmed']);
-        User::query()->create($request->except('_token', '_method'));
+        $this->validate($request, ['email' => 'nullable|unique:users,email', 'password' => 'confirmed']);
+        $params = $request->except('_token', '_method', 'password_confirmation', 'logo');
+        $params['viewable'] = $request->has('viewable') ? 1 : 0;
+        $params['admin'] = $request->has('admin') ? 1 : 0;
+        if ($request->has('logo')) {
+            $image = $request->file('logo');
+            $name = ($request->input('name')) . '_' . time();
+            $folder = '/img/team/';
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            $this->uploadOne($image, $folder, 'public', $name);
+            $params['image'] = '/storage/' . $filePath;
+        }
+        User::query()->create($params);
         return redirect()->route('user.index');
     }
 
@@ -89,8 +103,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['email' => 'nullable|unique', 'password' => 'confirmed']);
-        User::query()->find($id)->update($request->except('_token', '_method'));
+        $this->validate($request, ['email' => 'nullable|unique:users,email', 'password' => 'confirmed']);
+        $params = $request->except('_token', '_method', 'password_confirmation', 'logo');
+        $params['viewable'] = $request->has('viewable') ? 1 : 0;
+        $params['admin'] = $request->has('admin') ? 1 : 0;
+        if ($request->has('logo')) {
+            $image = $request->file('logo');
+            $name = ($request->input('name')) . '_' . time();
+            $folder = '/img/team/';
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            $this->uploadOne($image, $folder, 'public', $name);
+            $params['image'] = '/storage/' . $filePath;
+        }
+        User::query()->find($id)->update($params);
         return redirect()->route('user.index');
     }
 

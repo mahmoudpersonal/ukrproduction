@@ -16,7 +16,14 @@ class HomeController extends Controller
         return view('frontend.index', compact('team_members'));
     }
 
-    public function uploadImage(Request $request ){
+    public function uploadImage(Request $request)
+    {
 
+    }
+
+    public function changeLang(Request $request)
+    {
+        session()->put('current_locale', $request->lang);
+        return redirect()->route('home');
     }
 }

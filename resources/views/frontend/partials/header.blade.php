@@ -25,10 +25,10 @@ Header
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li class="active"><a href="#intro">{{__('front.home')}}</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">{{ __('front.about') }}</a></li>
                 {{--                <li><a href="#services">Services</a></li>--}}
                 {{--                <li><a href="#portfolio">Portfolio</a></li>--}}
-                <li><a href="#team">Team</a></li>
+                <li><a href="#team">{{ __('front.team') }}</a></li>
                 {{--                <li class="drop-down"><a href="">Drop Down</a>--}}
                 {{--                    <ul>--}}
                 {{--                        <li><a href="#">Drop Down 1</a></li>--}}
@@ -47,8 +47,18 @@ Header
                 {{--                    </ul>--}}
                 {{--                </li>--}}
                 <li><a href="#contact">{{__('front.contact')}}</a></li>
-                <li><a href="/admin">{{__('front.administration')}}</a></li>
-                <li style="padding: 10px"><select onchange=""><option value="en">en</option><option value="ar">ar</option><option value="es">es</option></select></li>
+                <li><a href="{{ route('patient.create') }}">{{__('front.administration')}}</a></li>
+                <li style="padding: 10px">
+                    <form action="{{ route('change-language') }}" method="post">
+                        @csrf
+                        <select id="lang" name="lang">
+                            <option value="en" @if('en' == session()->get('current_locale')) selected @endif>en</option>
+                            <option value="ar" @if('ar' == session()->get('current_locale')) selected @endif>ar</option>
+                            <option value="es" @if('es' == session()->get('current_locale')) selected @endif>es</option>
+                        </select>
+                    </form>
+
+                </li>
             </ul>
         </nav><!-- .main-nav -->
 

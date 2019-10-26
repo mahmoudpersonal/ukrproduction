@@ -18,7 +18,7 @@ class CreateStudiesTable extends Migration
             $table->unsignedInteger('patient_id');
             $table->unsignedInteger('area_id');
             $table->unsignedInteger('subarea_id');
-            $table->unsignedInteger('locale_id');
+            $table->unsignedInteger('locale_id')->nullable();
             $table->unsignedInteger('center_id');
             $table->unsignedInteger('user_id');
             $table->string('visit_type');

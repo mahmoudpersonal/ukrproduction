@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/' . __('front.bootstrap')) }}" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@
     <link href="{{ asset('vendor/css/lightbox.min.css') }}" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/' . __('front.style')) }}" rel="stylesheet">
 
     <!-- =======================================================
       Theme Name: Rapid
@@ -698,6 +698,13 @@ Header
 
 <!-- Template Main Javascript File -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script>
+    $(function () {
+        $('#lang').on('change', function () {
+            $(this).parent().submit();
+        });
+    });
+</script>
 
 </body>
 </html>

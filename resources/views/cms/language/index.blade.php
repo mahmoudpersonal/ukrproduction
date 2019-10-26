@@ -26,36 +26,47 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label class="form-control-label" for="contact">contact</label>
                             <input type="text" class="form-control" id="contact"
-                                   value="" name="contact"
+                                   value="" name="address"
                                    placeholder="Contact" required>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <h3 class="mb-0">About</h3>
-                        <div data-toggle="quill" data-quill-placeholder="Quill WYSIWYG"></div>
+                        <input type="hidden" name="about" id="about">
+                        <div data-toggle="quill" data-quill-placeholder="About"></div>
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" id="btn-submit" type="submit">Save</button>
                 <button class="btn btn-primary" type="reset">Cancel</button>
+            </form>
         </div>
-        </form>
     </div>
-    </div>
+
 @endsection
 @push('js')
     <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
     <script>
         $(function () {
+
+
+            //defining the editor
+            var options = {
+                modules: {toolbar: [["bold", "italic"], ["link", "blockquote", "code", "image"], [{list: "ordered"}, {list: "bullet"}]]},
+                placeholder: 'ajks',
+                theme: "snow"
+            };
+            var editor = new Quill('[data-toggle="quill"]', options);
+
             $('#locale_id').on('change', function () {
                 if ($(this).val() !== '')
                     $.ajax({
-                        url: '{{ route('cities.byCountry') }}',
+                        url: '{{ route('language.byLocale') }}',
                         dataType: 'json',
                         method: 'post',
                         data: {
@@ -63,13 +74,15 @@
                             _token: $('input[name="_token"]').val()
                         },
                         success: function (response) {
-                            $('#city_id').html('<option value="">-- Choose City --</option>');
-                            $.each(response, function (i, v) {
-                                $('#city_id').append('<option value="' + i + '">' + v + '</option>');
-                            });
+                            editor.root.innerHTML = typeof response[0].about == "undefined" ? '' : response[0].about;
+                            $('#contact').val(response[0].address);
                         }
                     });
-                else $('#city_id').html('<option value="">-- Choose City --</option>');
+            });
+
+
+            $('#btn-submit').on('click', function (e) {
+                $('#about').val(editor.root.innerHTML);
             });
         });
     </script>

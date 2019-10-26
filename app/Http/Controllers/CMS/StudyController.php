@@ -8,10 +8,13 @@ use App\Models\Center;
 use App\Models\Patient;
 use App\Models\Study;
 use App\User;
+use App\Utils\ImageUpload;
 use Illuminate\Http\Request;
 
 class StudyController extends Controller
 {
+    use ImageUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -64,10 +67,21 @@ class StudyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        $params = $request->except('_token', '_method');
-        Study::query()->create($params);
-        return redirect()->route('study.index');
+        $params = $request->except('_token', '_method', 'logo');
+        $params['image'] = "";
+        if ($request->has('logo')) {
+            $files = $request->file('logo');
+            foreach ($files as $file) {
+                $image = $file;
+                $name = ($request->input('examination')) . '_' . time();
+                $folder = '/img/studies' . Patient::query()->find($request->patient_id)->reference . '/';
+                $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+                $this->uploadOne($image, $folder, 'public', $name);
+                $params['image'] .= $filePath . ';';
+            }
+            Study::query()->create($params);
+            return redirect()->route('study.index');
+        }
     }
 
     /**
@@ -76,7 +90,8 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public function show(Study $study)
+    public
+    function show(Study $study)
     {
         //
     }
@@ -87,7 +102,8 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public function edit(Study $study)
+    public
+    function edit(Study $study)
     {
         $data = [
             'patients' => Patient::all(),
@@ -108,21 +124,34 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Study $study)
+    public
+    function update(Request $request, Study $study)
     {
-        $study->update($request->except('_token', '_method'));
-        return redirect()->route('study.index');
+        $study->update($request->except('_token', '_method', 'logo'));
+        $params['image'] = "";
+        if ($request->has('logo')) {
+            $files = $request->file('logo');
+            foreach ($files as $file) {
+                $image = $file;
+                $name = ($request->input('examination')) . '_' . time();
+                $folder = '/img/studies' . Patient::query()->find($request->patient_id)->reference . '/';
+                $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+                $this->uploadOne($image, $folder, 'public', $name);
+                $params['image'] .= $filePath . ';';
+            }
+            return redirect()->route('study.index');
+        }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Study $study
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Study $study)
-    {
-        Study::destroy($study->id);
-        return response()->json(['message' => 'success']);
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param \App\Models\Study $study
+         * @return \Illuminate\Http\Response
+         */
+        public
+        function destroy(Study $study)
+        {
+            Study::destroy($study->id);
+            return response()->json(['message' => 'success']);
+        }
     }
-}

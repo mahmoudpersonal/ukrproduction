@@ -8,5 +8,7 @@ return
         'home' => 'Home',
         'team' => 'Team',
         'administration' => 'ADMINISTRATION',
-        'team_desc' => 'Get in touch with our team'
+        'team_desc' => 'Get in touch with our team',
+        'bootstrap' => 'bootstrap.min.css',
+        'style' => 'style.css'
     ];

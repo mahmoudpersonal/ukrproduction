@@ -898,7 +898,7 @@ var DatatableBasic = function () {
         }, doOut: function () {
         }, tolerance: 200, throttle: 50, toggleClass: "on-screen", debug: !1
     }, a.onScreen(e))
-}(), QuillEditor = function () {
+}(), /*QuillEditor = function () {
     var e = $('[data-toggle="quill"]');
     e.length && e.each(function () {
         var e, a;
@@ -908,7 +908,7 @@ var DatatableBasic = function () {
             theme: "snow"
         })
     })
-}(), Select2 = function () {
+}(),*/ Select2 = function () {
     var e = $('[data-toggle="select"]');
     e.length && e.each(function () {
         $(this).select2({})

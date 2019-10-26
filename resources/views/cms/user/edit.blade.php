@@ -8,11 +8,16 @@
         <!-- Card body -->
         <div class="card-body">
             <!-- Form groups used in grid -->
-            <form method="POST"
+            <form method="POST" enctype="multipart/form-data"
                   action="@if(isset($user)){{ route('user.update', $user->id) }}@else{{ route('user.store') }}@endif">
                 @csrf
                 @isset($user) @method('PUT') @endisset
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <input type="file" style="display: none;" class="file" name="logo">
+                    </div>
+
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label" for="name">Name</label>
@@ -73,15 +78,24 @@
                     </div>
 
                     <div class="col-md-4">
+                        <label class="form-control-label" for="admin">admin?</label><br>
+                        <label class="custom-toggle">
+                            <input type="checkbox" name="admin" @if(isset($user) && $user->admin == 1) checked @endif>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="No"
+                                  data-label-on="Yes"></span>
+                        </label>
+                    </div>
+
+                    <div class="col-md-4 password">
                         <div class="form-group">
                             <label class="form-control-label" for="password">Password</label>
                             <input type="password" class="form-control" id="password"
-                                   value="@if(isset($user)){{ $user->password }}@endif" name="password"
+                                   value="" name="password"
                                    placeholder="*******">
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 password">
                         <div class="form-group">
                             <label class="form-control-label" for="password_confirmation">Confirm Password</label>
                             <input type="password" class="form-control" id="password_confirmation"
@@ -95,15 +109,6 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-control-label" for="admin">admin?</label><br>
-                        <label class="custom-toggle">
-                            <input type="checkbox" name="admin" @if(isset($user) && $user->admin == 1) checked @endif>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="No"
-                                  data-label-on="Yes"></span>
-                        </label>
-                    </div>
-
-                    <div class="col-md-4">
                         <label class="form-control-label" for="viewable">viewable?</label><br>
                         <label class="custom-toggle">
                             <input type="checkbox" name="viewable"
@@ -113,15 +118,34 @@
                         </label>
                     </div>
 
-                    <div class="col-md-8"></div>
+                    {{--                    <div class="col-md-8"></div>--}}
 
-
-                    <button class="btn btn-primary" type="submit">Save</button>
-                    <button class="btn btn-primary" type="reset">Cancel</button>
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" type="reset">Cancel</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 @endsection
 @push('js')
+    <script>
+        $(function () {
+            $('.password').css({'display': 'none'});
+            $('input[name="admin"]').on('change', function () {
+                if ($(this).prop('checked'))
+                    $('.password').css({'display': 'block'});
+                else
+                    $('.password').css({'display': 'none'});
+            });
+
+            $('input[name="viewable"]').on('change', function () {
+                if ($(this).prop('checked'))
+                    $('.file').css({'display': 'block'});
+                else
+                    $('.file').css({'display': 'none'});
+            });
+        });
+    </script>
 @endpush

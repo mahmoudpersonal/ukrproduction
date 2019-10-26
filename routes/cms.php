@@ -15,5 +15,6 @@ Route::resource('area', 'AreaController');
 Route::resource('user', 'UserController');
 Route::get('language/create', 'LanguageController@index')->name('language.index');
 Route::post('language/update', 'LanguageController@update')->name('language.update');
+Route::post('language/get', 'LanguageController@getByLocale')->name('language.byLocale');
 Route::post('cities', 'CityController@getByCountry')->name('cities.byCountry');
 });

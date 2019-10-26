@@ -5,7 +5,7 @@
         <header class="section-header">
             <h3 style="padding-top: 15px">Contact</h3>
             <p><b>{{__('front.address')}} : </b>{{ $settings['address'] ?? '' }}</p>
-            <p><b>{{__('front.email')}} : </b>{{ $settings['email'] ?? '' }}</p>
+            <p><b>{{__('front.email')}} : </b>{{ 'info@ukradiologist.online' }}</p>
         </header>
         {{--            <header class="section-header">--}}
         {{--                <h3>Pricing</h3>--}}
