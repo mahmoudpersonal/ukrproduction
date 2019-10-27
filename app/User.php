@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $query->where('viewable', 1);
     }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }

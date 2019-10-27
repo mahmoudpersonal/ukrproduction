@@ -6,7 +6,6 @@
         </div>
 
         <div class="row">
-            {{--            @for($i=0;$i<16;$i++)--}}
             @php($t=0.1)
             @foreach($team_members as $team_member)
                 @php($t += 0.1)

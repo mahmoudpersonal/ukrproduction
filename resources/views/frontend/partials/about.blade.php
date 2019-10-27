@@ -32,7 +32,7 @@
 {{--                            can also report directly to patients.--}}
 {{--                        </li>--}}
 {{--                    </ul>--}}
-                    {!! $settings['about'] !!}
+                    {!! $settings['about'] ?? '' !!}
                 </div>
             </div>
         </div>
