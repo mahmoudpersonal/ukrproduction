@@ -3,7 +3,7 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
-            <a class="navbar-brand" href="../dashboards/dashboard.html">
+            <a class="navbar-brand" href="#">
                 <img src="{{ asset('img/UKRO_02.png') }}" class="navbar-brand-img" alt="...">
             </a>
             <div class="ml-auto">
