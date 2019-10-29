@@ -2,7 +2,7 @@
 <html lang="en" @if(session()->get('current_locale') == 'ar')dir="rtl"@endif>
 <head>
     <meta charset="utf-8">
-    <title>Rapid Bootstrap Template</title>
+    <title>UK Radiologist</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

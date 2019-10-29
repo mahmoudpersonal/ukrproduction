@@ -15,7 +15,7 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <input type="file" style="display: none;" class="file" name="logo">
+                        <input type="file" class="file" name="logo">
                     </div>
 
                     <div class="col-md-4">
@@ -133,6 +133,13 @@
     <script>
         $(function () {
             $('.password').css({'display': 'none'});
+            $('.file').css({'display': 'none'});
+            @if(isset($user) && $user->viewable == 1)
+            $('.file').css({'display': 'block'});
+            @endif
+            @if(isset($user) && $user->admin == 1)
+            $('.password').css({'display': 'block'});
+            @endif
             $('input[name="admin"]').on('change', function () {
                 if ($(this).prop('checked'))
                     $('.password').css({'display': 'block'});

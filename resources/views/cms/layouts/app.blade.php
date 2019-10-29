@@ -6,15 +6,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="description" content="UK Radiologist">
     <meta name="author" content="mahmoud joumaa">
-    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
-    <!-- Extra details for Live View on GitHub Pages -->
+    <title>UK Radiologist</title>
     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-pro" />
+{{--    <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-pro" />--}}
     <!--  Social tags      -->
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('img/brand/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/UKRO_02.png') }}" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -27,9 +26,9 @@
     @stack('css')
 
 </head>
+{{--src="http://localhost:8000/img/UKRO_02.png"--}}
 
 <body>
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 @include('cms.layouts.partials.sidebar')
 <!-- Main content -->
