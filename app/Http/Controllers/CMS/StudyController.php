@@ -79,9 +79,9 @@ class StudyController extends Controller
                 $this->uploadOne($image, $folder, 'public', $name);
                 $params['image'] .= $filePath . ';';
             }
-            Study::query()->create($params);
-            return redirect()->route('study.index');
         }
+        Study::query()->create($params);
+        return redirect()->route('study.index');
     }
 
     /**
@@ -90,8 +90,7 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public
-    function show(Study $study)
+    public function show(Study $study)
     {
         //
     }
@@ -102,8 +101,7 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit(Study $study)
+    public function edit(Study $study)
     {
         $data = [
             'patients' => Patient::all(),
@@ -124,8 +122,7 @@ class StudyController extends Controller
      * @param \App\Models\Study $study
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(Request $request, Study $study)
+    public function update(Request $request, Study $study)
     {
         $study->update($request->except('_token', '_method', 'logo'));
         $params['image'] = "";
@@ -142,16 +139,16 @@ class StudyController extends Controller
             return redirect()->route('study.index');
         }
     }
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param \App\Models\Study $study
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function destroy(Study $study)
-        {
-            Study::destroy($study->id);
-            return response()->json(['message' => 'success']);
-        }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \App\Models\Study $study
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Study $study)
+    {
+        Study::destroy($study->id);
+        return response()->json(['message' => 'success']);
     }
+}

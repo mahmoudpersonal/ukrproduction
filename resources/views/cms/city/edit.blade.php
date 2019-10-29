@@ -25,7 +25,7 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" for="Country_id">City</label>
+                            <label class="form-control-label" for="Country_id">Country</label>
                             <select class="form-control" id="Country_id" name="Country_id" required>
                                 <option value="">-- Choose Country --</option>
                                 @foreach($countries as $country)

@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2acd54ba-5c3e-42b0-b268-cf15d5cefebb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Mail/TestMail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/SettingsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SettingsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/city/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/city/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cms/layouts/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/layouts/partials/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,23 +120,23 @@
   <component name="PropertiesComponent">
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp641\www\ukrproduction\public\css" />
-      <recent name="C:\wamp641\www\ukrproduction\resources\lang\es" />
-      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\utils" />
-      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
-      <recent name="C:\wamp641\www\ukrproduction\resources\views\cms\patient" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\Http\Controllers\CMS" />
       <recent name="C:\wamp641\www\ukrproduction\app\Http\Controllers\CMS" />
       <recent name="C:\wamp641\www\ukr\resources\lang\frontend\en" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers" />
       <recent name="C:\wamp641\www\ukr\app\Http\Controllers\CMS" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app" />
+      <recent name="C:\wamp641\www\ukrproduction\public\css" />
+      <recent name="C:\wamp641\www\ukrproduction\resources\lang\es" />
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\app\utils" />
+      <recent name="C:\Users\Mahmoud\Documents\ukrproduction\public\vendor" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -171,7 +173,7 @@
       <workItem from="1571650031660" duration="21016000" />
       <workItem from="1571906580988" duration="9316000" />
       <workItem from="1571984499716" duration="17193000" />
-      <workItem from="1572337717122" duration="2483000" />
+      <workItem from="1572337717122" duration="8178000" />
     </task>
     <servers />
   </component>

@@ -115,10 +115,10 @@
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong>web dev</strong>. All Rights Reserved
+            &copy; Copyright <strong>sbs</strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="">web dev team</a>
+            Designed by <a href="http://www.sbslebanon.com">Smart Business Solutions</a>
         </div>
     </div>
 </footer><!-- #footer -->

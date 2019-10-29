@@ -24,7 +24,7 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="active"><a href="#intro">{{__('front.home')}}</a></li>
+{{--                <li class="active"><a href="#intro">{{__('front.home')}}</a></li>--}}
                 <li><a href="#about">{{ __('front.about') }}</a></li>
                 {{--                <li><a href="#services">Services</a></li>--}}
                 {{--                <li><a href="#portfolio">Portfolio</a></li>--}}
