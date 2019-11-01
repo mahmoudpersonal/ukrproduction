@@ -144,7 +144,8 @@
                             <label class="form-control-label" for="examination">Examination</label>
                             <input class="form-control" name="examination" id="examination"
                                    placeholder="Select Examination" type="text"
-                                   value="@if(isset($study)){{ $study->examination }}@endif" autocomplete="off">
+                                   value="@if(isset($study)){{ $study->examination }}@endif" autocomplete="off"
+                                   required>
                         </div>
                     </div>
 
@@ -153,7 +154,8 @@
                             <label class="form-control-label" for="examination_date">Examination Date</label>
                             <input class="form-control dob" name="examination_date" id="examination_date"
                                    placeholder="Select date" type="text"
-                                   value="@if(isset($study)){{ $study->examination_date }}@endif" autocomplete="off">
+                                   value="@if(isset($study)){{ $study->examination_date }}@endif" autocomplete="off"
+                                   required>
                         </div>
                     </div>
 
@@ -162,7 +164,7 @@
                         <div class="form-group">
                             <label class="form-control-label" for="radiological_form">Radiological form</label>
                             <textarea name="radiological_form" class="form-control" id="radiological_form"
-                                      rows="3">@if(isset($study)){{ $study->radiological_form }}@endif</textarea>
+                                      rows="3" required>@if(isset($study)){{ $study->radiological_form }}@endif</textarea>
                         </div>
                     </div>
 
@@ -170,7 +172,7 @@
                         <div class="form-group">
                             <label class="form-control-label" for="previous_studies">Previous Studies</label>
                             <textarea name="previous_studies" class="form-control" id="previous_studies"
-                                      rows="3">@if(isset($study)){{ $study->previous_studies }}@endif</textarea>
+                                      rows="3" required>@if(isset($study)){{ $study->previous_studies }}@endif</textarea>
                         </div>
                     </div>
 
@@ -178,7 +180,7 @@
                         <div class="form-group">
                             <label class="form-control-label" for="technical_description">Technical Description</label>
                             <textarea name="technical_description" class="form-control" id="technical_description"
-                                      rows="3">@if(isset($study)){{ $study->technical_description }}@endif</textarea>
+                                      rows="3" required>@if(isset($study)){{ $study->technical_description }}@endif</textarea>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Save</button>

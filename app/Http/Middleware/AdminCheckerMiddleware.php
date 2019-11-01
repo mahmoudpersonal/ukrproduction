@@ -16,7 +16,7 @@ class AdminCheckerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check())
+        if (Auth::check() && Auth::user()->admin == 1)
             return $next($request);
         else {
             if (!$request->isJson()) {

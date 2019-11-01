@@ -38,13 +38,13 @@
                     </div>
 
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" for="bio">Biography</label>
-                            <textarea name="bio" class="form-control" id="bio"
-                                      rows="3">@if(isset($user)){{ $user->bio }}@endif</textarea>
-                        </div>
-                    </div>
+{{--                    <div class="col-md-4">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-control-label" for="bio">Biography</label>--}}
+{{--                            <textarea name="bio" class="form-control" id="bio"--}}
+{{--                                      rows="3">@if(isset($user)){{ $user->bio }}@endif</textarea>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="col-md-4">
                         <div class="form-group">
@@ -117,6 +117,10 @@
                                   data-label-on="Yes"></span>
                         </label>
                     </div>
+                    <div class="col-md-12">
+                        <input type="hidden" name="about" id="about">
+                        <div data-toggle="quill-editor" data-quill-placeholder="About"></div>
+                    </div>
 
                     {{--                    <div class="col-md-8"></div>--}}
 
@@ -130,8 +134,15 @@
     </div>
 @endsection
 @push('js')
+    <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
     <script>
         $(function () {
+            var options = {
+                modules: {toolbar: [["bold", "italic"], ["link", "blockquote", "code", "image"], [{list: "ordered"}, {list: "bullet"}]]},
+                placeholder: 'about',
+                theme: "snow"
+            };
+            var editor = new Quill('[data-toggle="quill-editor"]', options);
             $('.password').css({'display': 'none'});
             $('.file').css({'display': 'none'});
             @if(isset($user) && $user->viewable == 1)
@@ -153,6 +164,12 @@
                 else
                     $('.file').css({'display': 'none'});
             });
+
+
+            $('#btn-submit').on('click', function (e) {
+                $('#about').val(editor.root.innerHTML);
+            });
         });
     </script>
 @endpush
+

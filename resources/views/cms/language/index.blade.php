@@ -38,7 +38,7 @@
                     <div class="col-md-12">
                         <h3 class="mb-0">About</h3>
                         <input type="hidden" name="about" id="about">
-                        <div data-toggle="quill" data-quill-placeholder="About"></div>
+                        <div data-toggle="quill-editor" data-quill-placeholder="About"></div>
                     </div>
                 </div>
 
@@ -53,15 +53,13 @@
     <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
     <script>
         $(function () {
-
-
             //defining the editor
             var options = {
                 modules: {toolbar: [["bold", "italic"], ["link", "blockquote", "code", "image"], [{list: "ordered"}, {list: "bullet"}]]},
-                placeholder: 'ajks',
+                placeholder: 'about',
                 theme: "snow"
             };
-            var editor = new Quill('[data-toggle="quill"]', options);
+            var editor = new Quill('[data-toggle="quill-editor"]', options);
 
             $('#locale_id').on('change', function () {
                 if ($(this).val() !== '')
@@ -74,12 +72,15 @@
                             _token: $('input[name="_token"]').val()
                         },
                         success: function (response) {
+                            // alert(response[0].about);
+                            $('#about').val(response[0].about);
                             editor.root.innerHTML = typeof response[0].about == "undefined" ? '' : response[0].about;
+                            // alert(editor.root.innerHTML);
                             $('#contact').val(response[0].address);
+                            //
                         }
                     });
             });
-
 
             $('#btn-submit').on('click', function (e) {
                 $('#about').val(editor.root.innerHTML);

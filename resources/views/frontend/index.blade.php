@@ -545,37 +545,18 @@ Header
       Team Section
     ============================-->
 
-    @include('frontend.partials.team')
+    {{--    @include('frontend.partials.team')--}}
 
 
 <!--==========================
       Clients Section
     ============================-->
-    {{--    <section id="clients" class="wow fadeInUp">--}}
-    {{--        <div class="container">--}}
-
-    {{--            <header class="section-header">--}}
-    {{--                <h3>Our Clients</h3>--}}
-    {{--            </header>--}}
-
-    {{--            <div class="owl-carousel clients-carousel">--}}
-    {{--                <img src="img/clients/client-1.png" alt="">--}}
-    {{--                <img src="img/clients/client-2.png" alt="">--}}
-    {{--                <img src="img/clients/client-3.png" alt="">--}}
-    {{--                <img src="img/clients/client-4.png" alt="">--}}
-    {{--                <img src="img/clients/client-5.png" alt="">--}}
-    {{--                <img src="img/clients/client-6.png" alt="">--}}
-    {{--                <img src="img/clients/client-7.png" alt="">--}}
-    {{--                <img src="img/clients/client-8.png" alt="">--}}
-    {{--            </div>--}}
-
-    {{--        </div>--}}
-    {{--    </section><!-- #clients -->--}}
+    @include('frontend.partials.carousel-team')
 
 
 <!--==========================
-      Pricing Section
-    ============================-->
+          Pricing Section
+        ============================-->
 
     @include('frontend.partials.contact')
 
@@ -704,6 +685,22 @@ Header
     $(function () {
         $(document).on('change', '#lang', function () {
             $(this).parent().submit();
+        });
+        $(".team-carousel").owlCarousel({
+            autoplay: true,
+            items: 1,
+            dots: false,
+            loop: true,
+            smartSpeed: 1000,
+            // nav: true,
+            // navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            navigation : true,
+            navigationText :
+                ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>','<span class="fa-stack">' +
+                '<i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-right fa-stack-1x fa-inverse"></i></span>'],
+            responsive: {
+                0: {items: 1}, 768: {items: 1}, 900: {items: 1}
+            }
         });
     });
 </script>
