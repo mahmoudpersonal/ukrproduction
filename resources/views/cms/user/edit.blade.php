@@ -38,13 +38,13 @@
                     </div>
 
 
-{{--                    <div class="col-md-4">--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label class="form-control-label" for="bio">Biography</label>--}}
-{{--                            <textarea name="bio" class="form-control" id="bio"--}}
-{{--                                      rows="3">@if(isset($user)){{ $user->bio }}@endif</textarea>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="col-md-4" style="display: none">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <label class="form-control-label" for="bio">Biography</label>--}}
+                    {{--                            <textarea name="bio" class="form-control" id="bio"--}}
+                    {{--                                      rows="3">@if(isset($user)){{ $user->bio }}@endif</textarea>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
                     <div class="col-md-4">
                         <div class="form-group">
@@ -118,14 +118,14 @@
                         </label>
                     </div>
                     <div class="col-md-12">
-                        <input type="hidden" name="about" id="about">
+                        <input type="hidden" name="bio" id="about">
                         <div data-toggle="quill-editor" data-quill-placeholder="About"></div>
                     </div>
 
                     {{--                    <div class="col-md-8"></div>--}}
 
                     <div class="col-md-12">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button id="btn-submit" class="btn btn-primary" type="submit">Save</button>
                         <button class="btn btn-primary" type="reset">Cancel</button>
                     </div>
                 </div>
@@ -143,6 +143,8 @@
                 theme: "snow"
             };
             var editor = new Quill('[data-toggle="quill-editor"]', options);
+            var user = @json($user);
+            editor.root.innerHTML = user.bio !== null ? user.bio : '';
             $('.password').css({'display': 'none'});
             $('.file').css({'display': 'none'});
             @if(isset($user) && $user->viewable == 1)
@@ -164,7 +166,6 @@
                 else
                     $('.file').css({'display': 'none'});
             });
-
 
             $('#btn-submit').on('click', function (e) {
                 $('#about').val(editor.root.innerHTML);

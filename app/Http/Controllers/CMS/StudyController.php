@@ -68,7 +68,6 @@ class StudyController extends Controller
     public function store(Request $request)
     {
         $params = $request->except('_token', '_method', 'logo');
-        $params['image'] = "";
         if ($request->has('logo')) {
             $files = $request->file('logo');
             foreach ($files as $file) {
@@ -77,7 +76,10 @@ class StudyController extends Controller
                 $folder = '/img/studies' . Patient::query()->find($request->patient_id)->reference . '/';
                 $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
                 $this->uploadOne($image, $folder, 'public', $name);
-                $params['image'] .= $filePath . ';';
+                if (isset($params['image']))
+                    $params['image'] .= ';' . $filePath;
+                else
+                    $params['image'] = $filePath;
             }
         }
         Study::query()->create($params);
@@ -124,8 +126,7 @@ class StudyController extends Controller
      */
     public function update(Request $request, Study $study)
     {
-        $study->update($request->except('_token', '_method', 'logo'));
-        $params['image'] = "";
+        $params = $request->except('_token', '_method', 'logo');
         if ($request->has('logo')) {
             $files = $request->file('logo');
             foreach ($files as $file) {
@@ -134,10 +135,15 @@ class StudyController extends Controller
                 $folder = '/img/studies' . Patient::query()->find($request->patient_id)->reference . '/';
                 $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
                 $this->uploadOne($image, $folder, 'public', $name);
-                $params['image'] .= $filePath . ';';
+                if (isset($params['image']))
+                    $params['image'] .= ';' . $filePath;
+                else
+                    $params['image'] = $filePath;
             }
-            return redirect()->route('study.index');
+
         }
+        $study->update($params);
+        return redirect()->route('study.index');
     }
 
     /**

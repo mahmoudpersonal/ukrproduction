@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2acd54ba-5c3e-42b0-b268-cf15d5cefebb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/partials/carousel-team.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AdminCheckerMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminCheckerMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/language/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/language/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cms/study/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/study/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CMS/StudyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cms/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cms/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +171,7 @@
       <workItem from="1572429876101" duration="6602000" />
       <workItem from="1572506339913" duration="12284000" />
       <workItem from="1572528160709" duration="706000" />
+      <workItem from="1572593346239" duration="3899000" />
     </task>
     <servers />
   </component>
