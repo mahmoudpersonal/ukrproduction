@@ -20,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/change-language', 'HomeController@changeLang')->name('change-language');
 Route::post('/upload-image', 'HomeController@uploadImage')->name('upload-image');
+Route::post('/insert-study', 'HomeController@storeStudy')->name('front.study.store');
 Auth::routes();

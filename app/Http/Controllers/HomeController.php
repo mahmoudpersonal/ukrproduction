@@ -29,8 +29,14 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function testMail(){
+    public function testMail()
+    {
         Mail::to('mahmood.jomaa@gmail.com')
             ->send(new TestMail("Hello World!!"));
+    }
+
+    public function storeStudy(Request $request)
+    {
+        dd($request);
     }
 }

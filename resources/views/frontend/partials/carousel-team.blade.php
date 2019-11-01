@@ -1,4 +1,4 @@
-<section id="clients" class="wow fadeInUp section-bg">
+<section id="clients" class="wow fadeInUp section-bg" >
     <div class="container">
 
         <header class="section-header">
@@ -30,9 +30,9 @@
                     <div class="col-md-6">
                         <div class="description">
                             <h4><b>{{ $team_member->name }}</b></h4>
-                            {{ $team_member->bio }}
+                            {!!  $team_member->bio  !!}
                             <div class="social">
-                                <b>Contacts: </b>
+                                <b>{{ __('front.contact') }}: </b>
                                 <a href="{{ $team_member->twitter }}"><i
                                         class="fa fa-twitter"></i></a>
                                 <a href="{{ $team_member->linkedin }}"><i

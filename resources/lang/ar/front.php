@@ -9,6 +9,7 @@ return
         'home' => 'الرئيسية',
         'administration' => 'الادارة',
         'team_desc' => 'تواصلو مع فريقنا',
+        'study' => 'دراسة',
         'bootstrap' => 'bootstrap-rtl.min.css',
         'style' => 'style-rtl.css'
     ];

@@ -559,6 +559,7 @@ Header
         ============================-->
 
     @include('frontend.partials.contact')
+    @include('frontend.partials.study')
 
 
 <!--==========================
@@ -683,6 +684,13 @@ Header
 <script src="{{ asset('js/main.js') }}"></script>
 <script>
     $(function () {
+        function getfolder(e) {
+            var files = e.target.files;
+            var path = files[0].webkitRelativePath;
+            var Folder = path.split("/");
+            alert(Folder[0]);
+        }
+
         $(document).on('change', '#lang', function () {
             $(this).parent().submit();
         });
@@ -694,14 +702,32 @@ Header
             smartSpeed: 1000,
             // nav: true,
             // navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-            navigation : true,
-            navigationText :
-                ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>','<span class="fa-stack">' +
+            navigation: true,
+            navigationText:
+                ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>', '<span class="fa-stack">' +
                 '<i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-right fa-stack-1x fa-inverse"></i></span>'],
             responsive: {
                 0: {items: 1}, 768: {items: 1}, 900: {items: 1}
             }
         });
+        $('form#study-form').on('submit', function (e) {
+
+            e.preventDefault();
+            $.ajax({
+                    type: 'POST',
+                    url: '{{ route('front.study.store') }}',
+                    enctype: 'multipart/form-data',
+                    data: new FormData(this),
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        $(this).reset();
+                    }
+                }
+            );
+
+        });
+
     });
 </script>
 

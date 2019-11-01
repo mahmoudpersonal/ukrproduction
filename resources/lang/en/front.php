@@ -9,6 +9,7 @@ return
         'team' => 'Team',
         'administration' => 'ADMINISTRATION',
         'team_desc' => 'Get in touch with our team',
+        'study' => 'Study',
         'bootstrap' => 'bootstrap.min.css',
         'style' => 'style.css'
     ];

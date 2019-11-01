@@ -103,7 +103,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['email' => 'nullable|unique:users,email', 'password' => 'confirmed']);
+        $this->validate($request, ['email' => 'nullable|unique:users,email,'.$id, 'password' => 'confirmed']);
         $params = $request->except('_token', '_method', 'password_confirmation', 'logo');
         $params['viewable'] = $request->has('viewable') ? 1 : 0;
         $params['admin'] = $request->has('admin') ? 1 : 0;
