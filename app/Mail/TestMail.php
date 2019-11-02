@@ -34,6 +34,6 @@ class TestMail extends Mailable
         return $this->view('emails.test')
             ->from(env('MAIL_ADDRESS'), env('MAIL_NAME'))
             ->subject('Test Email')
-            ->with(['data' => $this->data]);
+            ->with($this->data);
     }
 }

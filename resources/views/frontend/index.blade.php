@@ -717,11 +717,12 @@ Header
                     type: 'POST',
                     url: '{{ route('front.study.store') }}',
                     enctype: 'multipart/form-data',
+                    dataType: 'json',
                     data: new FormData(this),
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                        $(this).reset();
+                        $('form#study-form').reset();
                     }
                 }
             );

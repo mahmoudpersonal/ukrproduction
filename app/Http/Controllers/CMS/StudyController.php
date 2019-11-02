@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
+use App\Mail\TestMail;
 use App\Models\Area;
 use App\Models\Center;
 use App\Models\Patient;
@@ -10,6 +11,7 @@ use App\Models\Study;
 use App\User;
 use App\Utils\ImageUpload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class StudyController extends Controller
 {
@@ -83,6 +85,8 @@ class StudyController extends Controller
             }
         }
         Study::query()->create($params);
+        Mail::to(User::query()->find($request->user_id)->email)
+            ->send(new TestMail("Hello World!!"));
         return redirect()->route('study.index');
     }
 

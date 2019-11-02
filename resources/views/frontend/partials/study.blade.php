@@ -12,9 +12,26 @@
                         <fieldset style="padding-top: 10px">
                             <!-- Name input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="name">Name</label>
+                                <label class="col-md-3 control-label" for="first_name">First Name</label>
                                 <div class="col-md-9">
-                                    <input id="name" name="name" type="text" placeholder="Your name"
+                                    <input id="first_name" name="first_name" type="text" placeholder="Your name"
+                                           class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="last_name">Last Name</label>
+                                <div class="col-md-9">
+                                    <input id="last_name" name="last_name" type="text" placeholder="Your surname"
+                                           class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="phone">Phone</label>
+                                <div class="col-md-9">
+                                    <input id="phone" name="phone" type="text" placeholder="Your phone"
                                            class="form-control">
                                 </div>
                             </div>
@@ -30,9 +47,9 @@
 
                             <!-- notes body -->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="message">Your Notes</label>
+                                <label class="col-md-3 control-label" for="technical_description">Your Notes</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" id="message" name="message"
+                                    <textarea class="form-control" id="technical_description" name="technical_description"
                                               placeholder="Please enter your notes here..." rows="5"></textarea>
                                 </div>
                             </div>

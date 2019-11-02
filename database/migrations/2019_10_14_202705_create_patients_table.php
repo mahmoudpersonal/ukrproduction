@@ -17,9 +17,11 @@ class CreatePatientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('reference');
-            $table->unsignedInteger('city_id');
-            $table->Date('dob');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('reference')->nullable();
+            $table->unsignedInteger('city_id')->nullable();
+            $table->Date('dob')->nullable();
             $table->string('attendance_number');
             $table->text('previous_medical_details')->nullable();
             $table->text('previous_surgical_details')->nullable();
